@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamalayan ng Kabataan sa Bisyo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-survey">
+<div class="wrap">
+  <div class="eyebrow">Survey</div>
+  <h1>Kamalayan ng Kabataan sa Bisyo</h1>
+  <p class="sub">Layunin ng survey na ito na alamin ang karanasan, pananaw, at kamalayan ng mga kabataan tungkol sa isyu ng bisyo. Kompidensyal ang lahat ng sagot.</p>
+
+  <div class="card">
+    <div class="progress" id="progress"></div>
+
+    <form id="surveyForm">
+
+      <!-- 1: Edad -->
+      <div class="step" data-section="A. Profile">
+        <div class="qnum">Tanong 1 ng 16</div>
+        <span class="section-tag">A. Profile</span>
+        <div class="question">Ilang taon ka na?</div>
+        <input class="text-input" type="number" min="1" max="120" name="edad" placeholder="Edad" required>
+      </div>
+
+      <!-- 2: Kasarian -->
+      <div class="step" data-section="A. Profile">
+        <div class="qnum">Tanong 2 ng 16</div>
+        <span class="section-tag">A. Profile</span>
+        <div class="question">Kasarian</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="kasarian" value="Lalaki" required><span>Lalaki</span></label>
+          <label class="opt"><input type="radio" name="kasarian" value="Babae"><span>Babae</span></label>
+        </div>
+      </div>
+
+      <!-- 3: Karanasan sa bisyo -->
+      <div class="step" data-section="B. Karanasan sa Bisyo">
+        <div class="qnum">Tanong 3 ng 16</div>
+        <span class="section-tag">B. Karanasan sa Bisyo</span>
+        <div class="question">Alin sa mga sumusunod ang naranasan mo na?</div>
+        <div class="hint">Maaaring pumili ng higit sa isa.</div>
+        <div class="options">
+          <label class="opt"><input type="checkbox" name="karanasan" value="Paninigarilyo"><span>Paninigarilyo</span></label>
+          <label class="opt"><input type="checkbox" name="karanasan" value="Pag-inom ng alak"><span>Pag-inom ng alak</span></label>
+          <label class="opt"><input type="checkbox" name="karanasan" value="Vape"><span>Vape</span></label>
+          <label class="opt"><input type="checkbox" name="karanasan" value="Iba pa" class="other-toggle" data-target="karanasan-other"><span>Iba pa</span></label>
+          <label class="opt"><input type="checkbox" name="karanasan" value="none" data-target="karanasan"><span>None</span></label>
+        </div>
+        <div class="other-field" id="karanasan-other" style="display:none;">
+          <input type="text" name="karanasan_other" placeholder="Paliwanag">
+        </div>
+      </div>
+
+      <!-- 4: Kasalukuyang bisyo -->
+      <div class="step" data-section="B. Karanasan sa Bisyo">
+        <div class="qnum">Tanong 4 ng 16</div>
+        <span class="section-tag">B. Karanasan sa Bisyo</span>
+        <div class="question">Ikaw ba ay kasalukuyang may bisyo?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="kasalukuyan" value="Oo"><span>Oo</span></label>
+          <label class="opt"><input type="radio" name="kasalukuyan" value="Hindi"><span>Hindi</span></label>
+          <label class="opt"><input type="radio" name="kasalukuyan" value="Dati lamang"><span>Dati lamang</span></label>
+        </div>
+      </div>
+
+      <!-- 5: Edad nagsimula -->
+      <div class="step" data-section="B. Karanasan sa Bisyo">
+        <div class="qnum">Tanong 5 ng 16</div>
+        <span class="section-tag">B. Karanasan sa Bisyo</span>
+        <div class="question">Kung dati o kasalukuyan kang nagkaroon ng bisyo, sa anong edad ka nagsimula?</div>
+        <input class="text-input" type="number" min="1" max="120" name="edad_simula" placeholder="Edad noong nagsimula (opsyonal)">
+      </div>
+
+      <!-- 6: Dahilan sa pagsisimula -->
+      <div class="step" data-section="B. Karanasan sa Bisyo">
+        <div class="qnum">Tanong 6 ng 16</div>
+        <span class="section-tag">B. Karanasan sa Bisyo</span>
+        <div class="question">Ano ang pangunahing dahilan kung bakit ka sumubok o nagsimula?</div>
+        <div class="hint">Maaaring pumili ng higit sa isa.</div>
+        <div class="options">
+          <label class="opt"><input type="checkbox" name="dahilan_simula" value="Impluwensya ng kaibigan"><span>Impluwensya ng kaibigan</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_simula" value="Pag-uusisa"><span>Pag-uusisa</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_simula" value="Problema sa pamilya"><span>Problema sa pamilya</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_simula" value="Stress"><span>Stress</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_simula" value="Impluwensya ng social media"><span>Impluwensya ng social media</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_simula" value="Iba pa" class="other-toggle" data-target="dahilan-simula-other"><span>Iba pa</span></label>
+        </div>
+        <div class="other-field" id="dahilan-simula-other" style="display:none;">
+          <input type="text" name="dahilan_simula_other" placeholder="Paliwanag">
+        </div>
+      </div>
+
+      <!-- 7: Naisip subukan -->
+      <div class="step" data-section="C. Pananaw ng mga Hindi Pa Nakakaranas">
+        <div class="qnum">Tanong 7 ng 16</div>
+        <span class="section-tag">C. Hindi Pa Nakakaranas</span>
+        <div class="question">Kung hindi ka pa nakakaranas ng bisyo, naisip mo na bang subukan ito?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="naisip_subukan" value="Oo"><span>Oo</span></label>
+          <label class="opt"><input type="radio" name="naisip_subukan" value="Hindi"><span>Hindi</span></label>
+        </div>
+      </div>
+
+      <!-- 8: Dahilan kung oo -->
+      <div class="step" data-section="C. Pananaw ng mga Hindi Pa Nakakaranas">
+        <div class="qnum">Tanong 8 ng 16</div>
+        <span class="section-tag">C. Hindi Pa Nakakaranas</span>
+        <div class="question">Kung oo, ano ang dahilan?</div>
+        <div class="options">
+          <label class="opt"><input type="checkbox" name="dahilan_naisip" value="Pag-uusisa"><span>Pag-uusisa</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_naisip" value="Impluwensya ng kaibigan"><span>Impluwensya ng kaibigan</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_naisip" value="Stress"><span>Stress</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_naisip" value="Iba pa" class="other-toggle" data-target="dahilan-naisip-other"><span>Iba pa</span></label>
+        </div>
+        <div class="other-field" id="dahilan-naisip-other" style="display:none;">
+          <input type="text" name="dahilan_naisip_other" placeholder="Paliwanag">
+        </div>
+      </div>
+
+      <!-- 9: Dahilan umiwas -->
+      <div class="step" data-section="C. Pananaw ng mga Hindi Pa Nakakaranas">
+        <div class="qnum">Tanong 9 ng 16</div>
+        <span class="section-tag">C. Hindi Pa Nakakaranas</span>
+        <div class="question">Ano ang dahilan kung bakit pinipili mong umiwas sa bisyo?</div>
+        <div class="hint">Maaaring pumili ng higit sa isa.</div>
+        <div class="options">
+          <label class="opt"><input type="checkbox" name="dahilan_iwas" value="Kalusugan"><span>Kalusugan</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_iwas" value="Pamilya"><span>Pamilya</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_iwas" value="Paniniwala"><span>Paniniwala</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_iwas" value="Paaralan"><span>Paaralan</span></label>
+          <label class="opt"><input type="checkbox" name="dahilan_iwas" value="Iba pa" class="other-toggle" data-target="dahilan-iwas-other"><span>Iba pa</span></label>
+        </div>
+        <div class="other-field" id="dahilan-iwas-other" style="display:none;">
+          <input type="text" name="dahilan_iwas_other" placeholder="Paliwanag">
+        </div>
+      </div>
+
+      <!-- 10: Epekto -->
+      <div class="step" data-section="D. Pananaw at Kamalayan">
+        <div class="qnum">Tanong 10 ng 16</div>
+        <span class="section-tag">D. Pananaw at Kamalayan</span>
+        <div class="question">Sa iyong palagay, gaano kalaki ang epekto ng bisyo sa kabataan?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="epekto" value="Napakalaki"><span>Napakalaki</span></label>
+          <label class="opt"><input type="radio" name="epekto" value="Malaki"><span>Malaki</span></label>
+          <label class="opt"><input type="radio" name="epekto" value="Katamtaman"><span>Katamtaman</span></label>
+          <label class="opt"><input type="radio" name="epekto" value="Maliit"><span>Maliit</span></label>
+          <label class="opt"><input type="radio" name="epekto" value="Walang epekto"><span>Walang epekto</span></label>
+        </div>
+      </div>
+
+      <!-- 11: Barkada statement -->
+      <div class="step" data-section="D. Pananaw at Kamalayan">
+        <div class="qnum">Tanong 11 ng 16</div>
+        <span class="section-tag">D. Pananaw at Kamalayan</span>
+        <div class="question">"Malaki ang impluwensya ng barkada sa pagsisimula ng bisyo." Sang-ayon ka ba?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="barkada" value="Lubos na sumasang-ayon"><span>Lubos na sumasang-ayon</span></label>
+          <label class="opt"><input type="radio" name="barkada" value="Sumasang-ayon"><span>Sumasang-ayon</span></label>
+          <label class="opt"><input type="radio" name="barkada" value="Hindi sumasang-ayon"><span>Hindi sumasang-ayon</span></label>
+          <label class="opt"><input type="radio" name="barkada" value="Lubos na hindi sumasang-ayon"><span>Lubos na hindi sumasang-ayon</span></label>
+        </div>
+      </div>
+
+      <!-- 12: Pinakamabisang paraan -->
+      <div class="step" data-section="D. Pananaw at Kamalayan">
+        <div class="qnum">Tanong 12 ng 16</div>
+        <span class="section-tag">D. Pananaw at Kamalayan</span>
+        <div class="question">Ano sa tingin mo ang pinakamabisang paraan upang maiwasan ng kabataan ang bisyo?</div>
+        <textarea name="paraan" placeholder="Ibahagi ang iyong opinyon..."></textarea>
+      </div>
+
+      <!-- 13: Karagdagang opinyon -->
+      <div class="step" data-section="D. Pananaw at Kamalayan">
+        <div class="qnum">Tanong 13 ng 16</div>
+        <span class="section-tag">D. Pananaw at Kamalayan</span>
+        <div class="question">May nais ka pa bang idagdag na opinyon o mungkahi tungkol sa isyung ito?</div>
+        <textarea name="karagdagan" placeholder="Opsyonal..."></textarea>
+      </div>
+
+      <!-- 14: Natutunan -->
+      <div class="step" data-section="D. Pananaw at Kamalayan">
+        <div class="qnum">Tanong 14 ng 16</div>
+        <span class="section-tag">D. Pananaw at Kamalayan</span>
+        <div class="question">May natutunan ka ba sa iyong karanasan?</div>
+        <textarea name="natutunan" placeholder="Ibahagi ang iyong sagot..."></textarea>
+      </div>
+
+      <!-- 15: Payo -->
+      <div class="step" data-section="D. Pananaw at Kamalayan">
+        <div class="qnum">Tanong 15 ng 16</div>
+        <span class="section-tag">D. Pananaw at Kamalayan</span>
+        <div class="question">Base sa sariling karanasan, ano ang maaari mong maibigay na payo para sa mga kabataang tulad mo na nais mag-bisyo?</div>
+        <textarea name="payo" placeholder="Ibahagi ang iyong payo..."></textarea>
+      </div>
+
+      <!-- 16: Done -->
+      <div class="step done-screen" data-section="Tapos">
+        <div class="qnum">Tanong 16 ng 16</div>
+        <h2>Salamat sa iyong sagot!</h2>
+        <p>Naitala na ang iyong mga sagot. Malaking tulong ito sa pag-unawa ng kamalayan ng mga kabataan tungkol sa bisyo.</p>
+      </div>
+
+    </form>
+
+    <div class="status" id="submitStatus"></div>
+
+    <div class="actions" id="actions">
+      <button type="button" class="btn-back" id="backBtn">Bumalik</button>
+      <button type="button" class="btn-next" id="nextBtn">Susunod</button>
+    </div>
+  </div>
+
+  <p class="note">Kompidensyal at anonymous ang lahat ng sagot.</p>
+</div>
+
+<script>
+  const steps = Array.from(document.querySelectorAll('.step'));
+  const progressEl = document.getElementById('progress');
+  const backBtn = document.getElementById('backBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let current = 0;
+
+  // build progress dots (exclude the final "done" step from the bar count feel, but keep consistent)
+  steps.forEach(() => {
+    const span = document.createElement('span');
+    progressEl.appendChild(span);
+  });
+
+  function isStepValid(stepEl){
+    const required = stepEl.querySelectorAll('[required]');
+    for(const field of required){
+      if(field.type === 'radio'){
+        const group = stepEl.querySelectorAll(`input[name="${field.name}"]`);
+        if(![...group].some(r => r.checked)) return false;
+      } else if(!field.value.trim()){
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function render(){
+    steps.forEach((s,i) => s.classList.toggle('active', i === current));
+    progressEl.querySelectorAll('span').forEach((s,i) => s.classList.toggle('done', i < current));
+    backBtn.style.visibility = current === 0 ? 'hidden' : 'visible';
+
+    const isLast = current === steps.length - 1;
+    document.getElementById('actions').style.display = isLast ? 'none' : 'flex';
+
+    nextBtn.textContent = current === steps.length - 2 ? 'Isumite' : 'Susunod';
+    nextBtn.disabled = !isStepValid(steps[current]);
+  }
+
+  function attachLiveValidation(stepEl){
+    stepEl.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('input', () => { nextBtn.disabled = !isStepValid(steps[current]); });
+      el.addEventListener('change', () => { nextBtn.disabled = !isStepValid(steps[current]); });
+    });
+  }
+  steps.forEach(attachLiveValidation);
+
+  // "Iba pa" toggles reveal their explanation field
+  document.querySelectorAll('.other-toggle').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const target = document.getElementById(cb.dataset.target);
+      target.style.display = cb.checked ? 'block' : 'none';
+    });
+  });
+
+  // Gathers every named field in the form into a plain object. Checkboxes
+  // sharing a name become an array; radios/text/textarea become a single value.
+  function collectPayload(){
+    const form = document.getElementById('surveyForm');
+    const payload = {};
+    const seen = new Set();
+    [...form.elements].forEach(el => {
+      if(!el.name || seen.has(el.name)) return;
+      seen.add(el.name);
+      if(el.type === 'checkbox'){
+        payload[el.name] = [...form.querySelectorAll(`[name="${el.name}"]:checked`)].map(c => c.value);
+      } else if(el.type === 'radio'){
+        const checked = form.querySelector(`[name="${el.name}"]:checked`);
+        payload[el.name] = checked ? checked.value : '';
+      } else {
+        payload[el.name] = el.value;
+      }
+    });
+    return payload;
+  }
+
+  const submitStatus = document.getElementById('submitStatus');
+
+  async function submitSurvey(){
+    submitStatus.className = 'status saving';
+    submitStatus.innerHTML = '<span class="spinner"></span>Isinasave ang iyong mga sagot…';
+    nextBtn.disabled = true;
+    backBtn.style.visibility = 'hidden';
+    try{
+      const res = await fetch('/api/submit-response', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(collectPayload())
+      });
+      if(!res.ok) throw new Error(`Request failed: ${res.status}`);
+      submitStatus.className = 'status';
+      submitStatus.textContent = '';
+      current++;
+      render();
+    } catch(err){
+      console.error(err);
+      submitStatus.className = 'status error';
+      submitStatus.textContent = 'Hindi na-save ang iyong sagot. Suriin ang koneksyon at subukan ulit.';
+      nextBtn.disabled = false;
+    }
+  }
+
+  backBtn.addEventListener('click', () => { if(current > 0){ current--; render(); } });
+  nextBtn.addEventListener('click', () => {
+    if(nextBtn.disabled) return;
+    // The last real question shows "Isumite" — submit to the backend before
+    // advancing to the "Tapos" screen, instead of just changing steps.
+    if(current === steps.length - 2){
+      submitSurvey();
+      return;
+    }
+    if(current < steps.length - 1){ current++; render(); }
+  });
+
+  render();
+</script>
+</body>
+</html>
